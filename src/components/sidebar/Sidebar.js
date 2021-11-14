@@ -6,10 +6,18 @@ import DonutLargeIcon from "@mui/icons-material/DonutLarge";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import ChatIcon from "@mui/icons-material/Chat";
 import SidebarChat from "../sidebarchat/SidebarChat";
+import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
+    const handleToggleSidebar = () => {
+        props.setSideMenuOpen(!props.isOpen);
+    };
     return (
-        <div className="sidebar">
+        <div
+            className={`sidebar ${
+                props.isOpen ? "sidebar_closeSideMenu" : "sidebar_openSideMenu"
+            }`}
+        >
             <div className="sidebar_header">
                 <Avatar src={process.env.PUBLIC_URL + "image.jpg"} />
                 <div className="sidebar_headerRight">
@@ -22,6 +30,11 @@ const Sidebar = () => {
                     <IconButton>
                         <MoreVertIcon />
                     </IconButton>
+                    {props.isOpen && (
+                        <IconButton onClick={handleToggleSidebar}>
+                            <ChevronLeftIcon />
+                        </IconButton>
+                    )}
                 </div>
             </div>
             <div className="sidebar_search">
