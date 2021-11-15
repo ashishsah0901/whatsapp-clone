@@ -45,9 +45,6 @@ const Sidebar = (props) => {
             </div>
             <div className="sidebar_chats">
                 <SidebarChat />
-                <SidebarChat />
-                <SidebarChat />
-                <SidebarChat />
             </div>
         </div>
     );
